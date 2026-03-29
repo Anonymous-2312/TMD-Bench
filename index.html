@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TMD-Bench: A Multi-Level Evaluation Paradigm for Music&ndash;Dance Co-Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <style>
+    .comparison-box {
+      overflow: hidden;
+    }
+
+    .comparison-columns {
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .comparison-prompt {
+      height: 350px;
+      overflow-y: auto;
+      border: 1px solid #e0e0e0;
+      padding: 15px;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+
+    .comparison-scroll {
+      height: 350px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 4px 12px 12px 0;
+    }
+
+    .comparison-track {
+      display: flex;
+      gap: 0;
+      min-width: max-content;
+      align-items: stretch;
+    }
+
+    .comparison-model {
+      flex: 0 0 136px;
+      height: 100%;
+      padding: 0 12px;
+      border-right: 1px solid #dcdcdc;
+      box-sizing: border-box;
+    }
+
+    .comparison-model:first-child {
+      padding-left: 0;
+    }
+
+    .comparison-model:last-child {
+      padding-right: 0;
+    }
+
+    .comparison-model h5 {
+      min-height: 2.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .comparison-model video {
+      width: 100%;
+      height: 280px;
+      display: block;
+      object-fit: contain;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #efefef;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TMD-Bench: A Multi-Level Evaluation Paradigm for Music&ndash;Dance<br>Co-Generation</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Music Examples</h2>
+    
+    <table class="table is-bordered is-striped is-narrow is-hoverable" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th style="width: 40%; text-align: center;">Music</th>
+          <th style="width: 60%; text-align: center;">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: middle; padding: 15px;">
+            <div>
+              <p><strong>Example 1</strong></p>
+              <audio controls style="width: 100%; margin-top: 10px;">
+                <source src="./music/self-music_0_0.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </td>
+          <td style="vertical-align: middle; padding: 15px;">
+            <p>This audio does not contain speech.</p>
+<p>This audio does not contain vocal singing.</p>
+<p>This audio has music.</p>
+<p><b>Music description:</b> "Core Instruments: Synthesizers, Electronic Drums, Synth Bass, Rhythm: Driving four-on-the-floor beat, repetitive synth arpeggios, danceable, Tempo: Up-tempo, Genre: Trance, Eurodance, EDM, Ambiance & Emotion: Energetic, uplifting, euphoric, driving, Functional Scenes: Nightclub, rave, festival transition, workout playlist."</p>
+<p><b>Natural language description:</b> "An energetic up-tempo trance track featuring synthesizers, electronic drums, and synth bass."</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle; padding: 15px;">
+            <div>
+              <p><strong>Example 2</strong></p>
+              <audio controls style="width: 100%; margin-top: 10px;">
+                <source src="./music/self-music_1_0.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </td>
+          <td style="vertical-align: middle; padding: 15px;">
+            <p>This audio does not contain speech.</p>  
+<p>This audio does not contain vocal singing.</p>
+<p>This audio has music.</p>
+<p><b>Music description:</b> "Core Instruments: Distorted Electric Guitar, Lead Guitar, Electric Bass, Drum Kit, Rhythm: Driving, powerful, energetic beat with fast drumming, Tempo: Up-tempo, Genre: Hard Rock, Heavy Metal, Instrumental Rock, Ambiance & Emotion: Intense, high-energy, aggressive, virtuosic, Functional Scenes: Video game boss battle, action movie sequence, live rock performance."</p>
+<p><b>Natural language description:</b> "This piece features core instruments including distorted electric guitar, lead guitar, electric bass, and a drum kit, defining its hard rock and heavy metal genre. It maintains a driving, powerful, and energetic up-tempo rhythm, creating an intense, aggressive, and virtuosic ambiance. Such a track is ideal for functional scenes like video game boss battles, action movie sequences, or live rock performances."</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle; padding: 15px;">
+            <div>
+              <p><strong>Example 3</strong></p>
+              <audio controls style="width: 100%; margin-top: 10px;">
+                <source src="./music/self-music_2_0.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </td>
+          <td style="vertical-align: middle; padding: 15px;">
+            <p>This audio does not contain speech.</p>
+            <p>This audio does not contain vocal singing.</p>
+            <p>This audio has music.</p>
+            <p><b>Music description:</b> "Core Instruments: Piano, Rhythm: Flowing arpeggios, expressive rhythm, Tempo: Slow-tempo, Genre: Classical, Film Score, Romantic, Ambiance & Emotion: Melancholic, poignant, introspective, dramatic, Functional Scenes: Dramatic film scene, emotional cutscene, reflective moment."</p>
+            <p><b>Natural language description:</b> "A melancholic solo piano piece evokes a classical, romantic style suitable for a film score."</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Text-to-Video Generation Comparison</h2>
+    
+    <!-- Example 1 -->
+    <div class="box comparison-box" style="margin-bottom: 40px;">
+      <h3 class="title is-4">Example 1</h3>
+      <div class="columns comparison-columns">
+        <!-- Left: Prompt with scroll -->
+        <div class="column is-one-third comparison-prompt">
+          <div class="content has-text-justified">
+            <p>1. This is a dance video. A middle-aged East Asian boy dances alone in a bedroom with soft lighting. The person performs a freestyle routine with expressive, rhythmic movements. No other people appear in the scene.<br><br>
+            <strong>Audio:</strong> Jazz with a light party-dance vibe for movement, featuring bass guitar core, syncopated rhythm and a slow tempo.</p>
+          </div>
+        </div>
+        <!-- Right: Scrollable Videos -->
+        <div class="column is-two-thirds comparison-scroll">
+          <div class="comparison-track">
+            <div class="comparison-model">
+              <h5 class="title is-6" style="color: #3273dc; font-weight: bold;">RhyJAM (Ours)</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/t2md/6_t2md.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">acestep-wan2.5</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/acestep-wan2.5/6_acestep-wan2.5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">javisdit</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/javisdit/6_javisdit.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">ovi</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/ovi/6_ovi.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">sora2</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/sora2/6_sora.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">universe</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/universe/6_universe.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">veo3</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/veo3/6_veo3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">wan-foley</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/wan-foley/6_wan-foley.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="box comparison-box" style="margin-bottom: 40px;">
+      <h3 class="title is-4">Example 2</h3>
+      <div class="columns comparison-columns">
+        <!-- Left: Prompt with scroll -->
+        <div class="column is-one-third comparison-prompt">
+          <div class="content has-text-justified">
+            <p>2. This is a dance video. A middle-aged Latina woman dances alone in a gymnasium. The person performs a jazz dance routine with expressive, rhythmic movements. No other people appear in the scene.<br><br>
+            <strong>Audio:</strong> Intimate-vibe EDM with drum-kit rhythm and normal tempo, perfect for festival dancing and dynamic movement.</p>
+          </div>
+        </div>
+        <!-- Right: Scrollable Videos -->
+        <div class="column is-two-thirds comparison-scroll">
+          <div class="comparison-track">
+            <div class="comparison-model">
+              <h5 class="title is-6" style="color: #3273dc; font-weight: bold;">RhyJAM (Ours)</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/t2md/12_t2md.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">acestep-wan2.5</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/acestep-wan2.5/12_acestep-wan2.5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">javisdit</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/javisdit/12_javisdit.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">ovi</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/ovi/12_ovi.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">sora2</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/sora2/12_sora.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">universe</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/universe/12_universe.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">veo3</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/veo3/12_veo3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">wan-foley</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/wan-foley/12_wan-foley.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="box comparison-box" style="margin-bottom: 40px;">
+      <h3 class="title is-4">Example 3</h3>
+      <div class="columns comparison-columns">
+        <!-- Left: Prompt with scroll -->
+        <div class="column is-one-third comparison-prompt">
+          <div class="content has-text-justified">
+            <p>3. This is a dance video. A middle-aged East Asian boy dances alone in a bedroom with soft lighting. The person performs a freestyle routine with expressive, rhythmic movements. No other people appear in the scene.<br><br>
+            <strong>Audio:</strong> Medium rock with intimate mood for workout dancing and movement. <em>Core Instruments: drum kit, Rhythm: syncopated, Tempo: medium, Genre: rock, Ambiance & Emotion: intimate.</em></p>
+          </div>
+        </div>
+        <!-- Right: Scrollable Videos -->
+        <div class="column is-two-thirds comparison-scroll">
+          <div class="comparison-track">
+            <div class="comparison-model">
+              <h5 class="title is-6" style="color: #3273dc; font-weight: bold;">RhyJAM (Ours)</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/t2md/28_t2md.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">acestep-wan2.5</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/acestep-wan2.5/28_acestep-wan2.5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">javisdit</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/javisdit/28_javisdit.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">ovi</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/ovi/28_ovi.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">sora2</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/sora2/28_sora.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">universe</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/universe/28_universe.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">veo3</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/veo3/28_veo3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">wan-foley</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/wan-foley/28_wan-foley.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="box comparison-box" style="margin-bottom: 40px;">
+      <h3 class="title is-4">Example 4</h3>
+      <div class="columns comparison-columns">
+        <!-- Left: Prompt with scroll -->
+        <div class="column is-one-third comparison-prompt">
+          <div class="content has-text-justified">
+            <p>4. This is a dance video. In a quiet park with soft sunlight, Two dancers, a young adult Latino girl and a young adult Latino girl, dance together during a charity fundraiser show. They perform a coordinated street dance routine, wearing matching or complementary street attire. The camera frames both subjects as they mirror each other's steps, incorporating complex footwork, breakdance freezes, and dynamic arm waves. The background features green trees and a winding path, providing a peaceful natural setting. Their interaction is synchronized and energetic. No other people appear in the scene.<br><br>
+            <strong>Audio:</strong> Medium rock with intimate mood for workout dancing and movement. <em>Core Instruments: drum kit, Rhythm: syncopated, Tempo: medium, Genre: rock, Ambiance & Emotion: intimate.</em></p>
+          </div>
+        </div>
+        <!-- Right: Scrollable Videos -->
+        <div class="column is-two-thirds comparison-scroll">
+          <div class="comparison-track">
+            <div class="comparison-model">
+              <h5 class="title is-6" style="color: #3273dc; font-weight: bold;">RhyJAM (Ours)</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/t2md/63_t2md.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">acestep-wan2.5</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/acestep-wan2.5/63_acestep-wan2.5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">javisdit</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/javisdit/63_javisdit.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">ovi</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/ovi/63_ovi.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">sora2</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/sora2/63_sora.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">universe</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/universe/63_universe.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">veo3</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/veo3/63_veo3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-model">
+              <h5 class="title is-6">wan-foley</h5>
+              <video poster="" controls loop playsinline>
+                <source src="./pickcase/wan-foley/63_wan-foley.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Additional Examples</h2>
+    
+    <div class="columns is-multiline">
+      <div class="column is-one-third">
+        <h4 class="title is-5 has-text-centered">Example 1</h4>
+        <video poster="" controls loop playsinline width="100%">
+          <source src="./more_case/1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <h4 class="title is-5 has-text-centered">Example 2</h4>
+        <video poster="" controls loop playsinline width="100%">
+          <source src="./more_case/2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <h4 class="title is-5 has-text-centered">Example 3</h4>
+        <video poster="" controls loop playsinline width="100%">
+          <source src="./more_case/3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <h4 class="title is-5 has-text-centered">Example 4</h4>
+        <video poster="" controls loop playsinline width="100%">
+          <source src="./more_case/4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <h4 class="title is-5 has-text-centered">Example 5</h4>
+        <video poster="" controls loop playsinline width="100%">
+          <source src="./more_case/5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <h4 class="title is-5 has-text-centered">Example 6</h4>
+        <video poster="" controls loop playsinline width="100%">
+          <source src="./more_case/6.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+  </div>
+</footer>
+
+</body>
+</html>
